@@ -11,7 +11,7 @@ describe('TodoMVC', function () {
     cy.visit('/')
   })
 
-  context('Editing', { tags: '@editing' }, function () {
+  context('Editing', function () {
     beforeEach(addDefaultTodos)
 
     it('should hide other controls when editing', function () {
@@ -21,7 +21,7 @@ describe('TodoMVC', function () {
       cy.get('@secondTodo').find('label').should('not.be.visible')
     })
 
-    it('should save edits on blur', { tags: '@sanity' }, function () {
+    it('should save edits on blur', function () {
       allItems().eq(1).as('secondTodo').find('label').dblclick()
 
       cy.get('@secondTodo')
