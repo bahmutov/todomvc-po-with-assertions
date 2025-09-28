@@ -1,7 +1,7 @@
 {
-  "name": "test-todomvc-using-app-actions",
+  "name": "todomvc-po-with-assertions",
   "version": "1.0.0",
-  "description": "Example Cypress tests going from page objects to app actions",
+  "description": "An example TodoMVC",
   "main": "index.js",
   "scripts": {
     "test": "cypress run",
@@ -33,21 +33,16 @@
   "license": "MIT",
   "private": true,
   "bugs": {
-    "url": "https://github.com/bahmutov/test-todomvc-using-app-actions/issues"
+    "url": "https://github.com/bahmutov/todomvc-po-with-assertions/issues"
   },
-  "homepage": "https://github.com/bahmutov/test-todomvc-using-app-actions#readme",
+  "homepage": "https://github.com/bahmutov/todomvc-po-with-assertions#readme",
   "dependencies": {
     "http-server": "14.1.1"
   },
   "devDependencies": {
-    "@bahmutov/cy-grep": "1.11.6",
-    "cypress": "13.17.0",
-    "cypress-repeat": "2.3.10",
-    "cypress-watch-and-reload": "1.10.20",
-    "find-cypress-specs": "1.54.6",
+    "cypress": "15.3.0",
     "prettier": "3.6.2",
-    "spec-change": "1.11.20",
-    "start-server-and-test": "1.15.5",
+    "start-server-and-test": "2.1.2",
     "typescript": "4.9.5"
   }
 }
