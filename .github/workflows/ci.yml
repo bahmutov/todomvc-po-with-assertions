@@ -5,18 +5,15 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       # https://github.com/cypress-io/github-action
       - name: Cypress run
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           # check the spec types
           build: npm run lint
           # start the application before running Cypress
           start: npm start
-          # pass the grep tag to run only some tests
-          # https://github.com/bahmutov/cy-grep
-          env: grepTags=@sanity
