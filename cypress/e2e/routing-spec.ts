@@ -11,7 +11,7 @@ describe('TodoMVC', function () {
     cy.visit('/')
   })
 
-  context('Routing', { tags: '@routing' }, function () {
+  context('Routing', function () {
     /**
      * Little utility function to click on a given filter on the page.
      * We are testing routing links, so these tests go through the DOM.
@@ -23,17 +23,13 @@ describe('TodoMVC', function () {
     // use app actions.
     beforeEach(addDefaultTodos)
 
-    it(
-      'should allow me to display active items',
-      { tags: '@regression' },
-      function () {
-        toggle(1)
-        // the UI feature we are actually testing - the "Active" link
-        clickFilter('Active')
-        allItems().eq(0).should('contain', TODO_ITEM_ONE)
-        allItems().eq(1).should('contain', TODO_ITEM_THREE)
-      },
-    )
+    it('should allow me to display active items', function () {
+      toggle(1)
+      // the UI feature we are actually testing - the "Active" link
+      clickFilter('Active')
+      allItems().eq(0).should('contain', TODO_ITEM_ONE)
+      allItems().eq(1).should('contain', TODO_ITEM_THREE)
+    })
 
     it('should respect the back button', function () {
       toggle(1)
@@ -46,27 +42,19 @@ describe('TodoMVC', function () {
       allItems().should('have.length', 3)
     })
 
-    it(
-      'should allow me to display completed items',
-      { tags: ['@sanity', '@regression'] },
-      function () {
-        toggle(1)
-        clickFilter('Completed')
-        allItems().should('have.length', 1)
-      },
-    )
+    it('should allow me to display completed items', function () {
+      toggle(1)
+      clickFilter('Completed')
+      allItems().should('have.length', 1)
+    })
 
-    it(
-      'should allow me to display all items',
-      { tags: '@regression' },
-      function () {
-        toggle(1)
-        clickFilter('Active')
-        clickFilter('Completed')
-        clickFilter('All')
-        allItems().should('have.length', 3)
-      },
-    )
+    it('should allow me to display all items', function () {
+      toggle(1)
+      clickFilter('Active')
+      clickFilter('Completed')
+      clickFilter('All')
+      allItems().should('have.length', 3)
+    })
 
     it('should highlight the currently applied filter', function () {
       // using a within here which will automatically scope

@@ -11,7 +11,7 @@ describe('TodoMVC', function () {
     cy.visit('/')
   })
 
-  context('Persistence', { tags: '@persistence' }, function () {
+  context('Persistence', function () {
     // mimicking TodoMVC tests
     // by writing out this function
     function testState() {
@@ -25,13 +25,9 @@ describe('TodoMVC', function () {
         .and('not.have.class', 'completed')
     }
 
-    it(
-      'should persist its data',
-      { tags: ['@sanity', '@regression'] },
-      function () {
-        addTodos(TODO_ITEM_ONE, TODO_ITEM_TWO)
-        toggle(0).then(testState).reload().then(testState)
-      },
-    )
+    it('should persist its data', function () {
+      addTodos(TODO_ITEM_ONE, TODO_ITEM_TWO)
+      toggle(0).then(testState).reload().then(testState)
+    })
   })
 })
