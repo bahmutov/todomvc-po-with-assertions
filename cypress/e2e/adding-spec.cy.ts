@@ -31,7 +31,7 @@ describe('TodoMVC', function () {
       )
   })
 
-  it.only('adds a new todo (using page object assertion)', () => {
+  it('adds a new todo (using page object assertion)', () => {
     cy.get('.new-todo').type('Feed the cat{enter}')
     cy.get('.todo-list li').should('read', ['Feed the cat'])
 
